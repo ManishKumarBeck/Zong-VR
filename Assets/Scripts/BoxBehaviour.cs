@@ -9,6 +9,9 @@ public class BoxBehaviour : MonoBehaviour
     [SerializeField]
     ParticleSystem _boxParticle;
 
+    [SerializeField]
+    private AudioSource _audioSource;
+
 
     [SerializeField, Header("Canvas")]
     private Canvas _canvas;
@@ -16,8 +19,9 @@ public class BoxBehaviour : MonoBehaviour
     private void Start()
     {
         _boxParticle = _particleSystem.GetComponent<ParticleSystem>();
+       // _audioSource = GetComponent<AudioSource>();
 
-        if(_canvas != null)
+        if (_canvas != null)
         {
             _canvas.enabled = false;
         }
@@ -31,7 +35,8 @@ public class BoxBehaviour : MonoBehaviour
             {
                 _boxParticle.Play();
                 _canvas.enabled = true;
-             
+                _audioSource.Play();
+
             }
 
             else
